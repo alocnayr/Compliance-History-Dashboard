@@ -32,14 +32,17 @@ const LineChartComponent = ({ data }) => {
 
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <LineChart data={formattedData}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="year" angle={-45} textAnchor="end" height={50} />
-        <YAxis label={{ value: 'Number Of Policies', angle: -90, position: 'insideLeft' }} />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="Compliant" stroke="green" />
-        <Line type="monotone" dataKey="Non-compliant" stroke="red" />
+      <LineChart data={formattedData} style={{ color: 'white' }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#555" />
+        <XAxis dataKey="year" angle={-45} textAnchor="end" height={50} stroke="white" />
+        <YAxis label={{ value: 'Number Of Policies', angle: -90, position: 'insideLeft', fill: 'white' }} stroke="white" />
+        <Tooltip
+          labelStyle={{ color: 'white' }}
+          contentStyle={{ background: '#555', border: 'none', borderRadius: '5px', padding: '10px', color: 'white' }}
+        />
+        <Legend wrapperStyle={{ color: 'white' }} />
+        <Line type="monotone" dataKey="Compliant" stroke="#00ff00" strokeWidth={3} /> {/* Bright green */}
+        <Line type="monotone" dataKey="Non-compliant" stroke="#ff0000" strokeWidth={3} /> {/* Bright red */}
       </LineChart>
     </ResponsiveContainer>
   );

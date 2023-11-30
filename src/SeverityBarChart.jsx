@@ -14,9 +14,9 @@ const SeverityBarChart = ({ data }) => {
   if (data.length === 0) return null; // If no data, exit
 
   const severityColors = {
-    Low: "#3498db",    // Nice blue color for Low
-    Medium: "#f39c12", // Yellow-oranish color for Medium
-    High: "#e74c3c"    // Red-purplish color for High
+    Low: "#0ac6ff",    // Nice blue color for Low
+    Medium: "#fab72d", // Yellow-oranish color for Medium
+    High: "#ff0000"    // Red-purplish color for High
   };
 
   const dataByYear = data.reduce((acc, curr) => {
@@ -35,12 +35,15 @@ const SeverityBarChart = ({ data }) => {
 
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <BarChart data={formattedData}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="year" angle={-45} textAnchor="end" height={50} />
-        <YAxis label={{ value: 'Number Of Policies', angle: -90, position: 'insideLeft' }} />
-        <Tooltip />
-        <Legend />
+      <BarChart data={formattedData} style={{ color: 'white' }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#555" />
+        <XAxis dataKey="year" angle={-45} textAnchor="end" height={50} stroke="white" />
+        <YAxis label={{ value: 'Number Of Policies', angle: -90, position: 'insideLeft', fill: 'white' }} stroke="white" />
+        <Tooltip
+          labelStyle={{ color: 'white' }}
+          contentStyle={{ background: '#555', border: 'none', borderRadius: '5px', padding: '10px', color: 'white' }}
+        />
+        <Legend wrapperStyle={{ color: 'white' }} />
         <Bar dataKey="Low" fill={severityColors.Low} />
         <Bar dataKey="Medium" fill={severityColors.Medium} />
         <Bar dataKey="High" fill={severityColors.High} />

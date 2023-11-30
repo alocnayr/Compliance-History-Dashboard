@@ -1,5 +1,14 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianGrid,
+  ResponsiveContainer
+} from 'recharts';
 
 const ComplianceBarChart = ({ data }) => {
   if (data.length === 0) return null; // If no data, exit
@@ -23,14 +32,17 @@ const ComplianceBarChart = ({ data }) => {
 
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <BarChart data={formattedData}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="year" angle={-45} textAnchor="end" height={50} />
-        <YAxis label={{ value: 'Number Of Policies', angle: -90, position: 'insideLeft' }} />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="Compliant" fill="green" />
-        <Bar dataKey="Non-compliant" fill="red" />
+      <BarChart data={formattedData} style={{ color: 'white' }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#555" />
+        <XAxis dataKey="year" angle={-45} textAnchor="end" height={50} stroke="white" />
+        <YAxis label={{ value: 'Number Of Policies', angle: -90, position: 'insideLeft', fill: 'white' }} stroke="white" />
+        <Tooltip
+          labelStyle={{ color: 'white' }}
+          contentStyle={{ background: '#555', border: 'none', borderRadius: '5px', padding: '10px', color: 'white' }}
+        />
+        <Legend wrapperStyle={{ color: 'white' }} />
+        <Bar dataKey="Compliant" fill="#00ff00" /> {/* Bright green */}
+        <Bar dataKey="Non-compliant" fill="#ff0000" /> {/* Bright red */}
       </BarChart>
     </ResponsiveContainer>
   );
