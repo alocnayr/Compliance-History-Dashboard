@@ -1,4 +1,4 @@
-Policy ID,Policy Name,Description,Policy Type,Resource Group Name,Compliance Status,Severity,Date
+Policy_ID,Policy_Name,Description,Policy_Type,Resource_Group_Name,Compliance_Status,Severity,Year
 P001,Access Control Policy,Restricts access to sensitive data,Preventative,Finance Department,Compliant,Low,2018
 P002,Data Encryption,Requires encryption for sensitive files,Preventative,IT Department,Non-compliant,High,2018
 P003,Password Policy,Enforces strong password requirements,Preventative,HR Department,Compliant,Medium,2018

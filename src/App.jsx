@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ComplianceHistoryChart from "./ComplianceHistoryChart";
+import ComplianceBarChart from "./ComplianceBarChart";
+import SeverityBarChart from "./SeverityBarChart";
+import LineChartComponent from "./LineChartComponent";
+import Heatmap from "./HeatMap";
 import Papa from "papaparse";
 
 const App = () => {
@@ -27,7 +30,13 @@ const App = () => {
   return (
     <div>
       <h1>Compliance History Chart</h1>
-      <ComplianceHistoryChart data={complianceData} />
+      <ComplianceBarChart data={complianceData} />
+      <h1>Severity Bar Chart</h1>
+      <SeverityBarChart data={complianceData} />
+      <h1>Line Chart</h1>
+      <LineChartComponent data={complianceData} />
+      <h1>Heat Map</h1>
+      <Heatmap data={complianceData} />
     </div>
   );
 };
