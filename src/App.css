@@ -12,8 +12,7 @@ body {
   }
   
   .chart-title {
-    color: #66d9ef;
-    border-bottom: 2px solid #00d5ff;
+    color: white;
     padding-bottom: 10px;
     margin-top: 0;
     margin-bottom: 10px;
@@ -56,6 +55,7 @@ body {
   }
   
   .hud-title {
+    color: #001AFF;
     font-size: 24px;
     margin: 0;
     margin-left: auto; /* Move to the right side */

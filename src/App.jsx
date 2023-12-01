@@ -4,8 +4,9 @@ import SeverityBarChart from "./SeverityBarChart";
 import LineChartComponent from "./LineChartComponent";
 import Heatmap from "./HeatMap";
 import Papa from "papaparse";
+import generatePDFReport from "./GeneratePDFReport"; // Import the PDF generator function
 import "./App.css";
-import StateStreetLogo from "./state-street.png"; // Assuming this is the correct path
+import StateStreetLogo from "./state-street.png";
 
 const App = () => {
   const [complianceData, setComplianceData] = useState([]);
@@ -19,7 +20,6 @@ const App = () => {
           dynamicTyping: true,
           complete: (results) => {
             setComplianceData(results.data);
-            console.log("Updated data:", results.data);
           },
         });
       })
@@ -28,11 +28,16 @@ const App = () => {
       });
   }, []);
 
+  const handleDownloadPDF = () => {
+    generatePDFReport(complianceData);
+  };
+
   return (
     <div className="app">
       <div className="hud">
         <img src={StateStreetLogo} alt="State Street" className="state-street-logo" />
         <h1 className="hud-title">Compliance Dashboard</h1>
+        <button onClick={handleDownloadPDF}>Download PDF Report</button>
       </div>
       <div className="dark-mode">
         <div className="chart-container">
