@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import ComplianceBarChart from "./ComplianceBarChart";
 import SeverityBarChart from "./SeverityBarChart";
 import LineChartComponent from "./LineChartComponent";
-import Heatmap from "./HeatMap";
 import Papa from "papaparse";
-import generatePDFReport from "./GeneratePDFReport";
-import uploadReportToAzureBlob from "./UploadReportToAzureBlob";
+import generatePDFReport from "./GeneratePDFReport.mjs";
 import "./App.css";
 import StateStreetLogo from "./state-street.png";
 
@@ -30,8 +28,7 @@ const App = () => {
   }, []);
 
   const handleDownloadPDF = () => {
-    const pdfDoc = generatePDFReport(complianceData);
-    uploadReportToAzureBlob(pdfDoc);
+    generatePDFReport(complianceData);
   };
 
   return (

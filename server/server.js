@@ -1,32 +1,45 @@
 const express = require("express");
+const { json } = require("express");
 const { BlobServiceClient } = require("@azure/storage-blob");
+const cors = require("cors");
+const { schedule } = require("node-cron");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5001;
 
-// Middleware to parse incoming requests with JSON payloads
-app.use(express.json());
+app.use(cors());
+app.use(json({ limit: '50mb' }));
+app.use(express.static('client/src'));
 
-app.post("/upload", async (req, res) => {
-  const { pdfData, blobName } = req.body; // Assume pdfData is a base64 encoded string
-  const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
-
+// Function to handle PDF upload
+const uploadPDFToBlob = async () => {
   try {
-    const blobServiceClient =
-      BlobServiceClient.fromConnectionString(connectionString);
-    const containerClient =
-      blobServiceClient.getContainerClient("compliance-reports");
-    const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+    // Add logic to fetch or generate compliance data
+    const complianceData = [];
+
+    // Use dynamic import for GeneratePDFReport.mjs
+    const generatePDFReportModule = await import('../client/src/GeneratePDFReport.mjs');
+    const pdfDoc = generatePDFReportModule.default(complianceData);
+    const pdfData = pdfDoc.output('datauristring').split(',')[1];
+
+    const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
+    const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
+    const containerClient = blobServiceClient.getContainerClient("compliance-reports");
+    const blobName = `Compliance_Report_${new Date().toISOString()}.pdf`;
 
     const buffer = Buffer.from(pdfData, "base64");
+    const blockBlobClient = containerClient.getBlockBlobClient(blobName);
     await blockBlobClient.upload(buffer, buffer.length);
 
-    res.status(200).send({ message: "File uploaded successfully" });
+    console.log('PDF uploaded successfully');
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "Error uploading to Azure Blob Storage" });
+    console.error('Error generating or uploading PDF:', error);
   }
+};
+
+schedule('* * * * *', () => {
+  uploadPDFToBlob();
 });
 
 app.listen(port, () => {

@@ -1,4 +1,4 @@
-import { jsPDF } from "jspdf";
+import jsPDF from "jspdf";
 import StateStreetBackground from "./state-street-background.jpg";
 import StateStreetLogo from "./state-street.png";
 
