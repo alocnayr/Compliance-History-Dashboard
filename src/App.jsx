@@ -4,7 +4,8 @@ import SeverityBarChart from "./SeverityBarChart";
 import LineChartComponent from "./LineChartComponent";
 import Heatmap from "./HeatMap";
 import Papa from "papaparse";
-import generatePDFReport from "./GeneratePDFReport"; // Import the PDF generator function
+import generatePDFReport from "./GeneratePDFReport";
+import uploadReportToAzureBlob from "./UploadReportToAzureBlob";
 import "./App.css";
 import StateStreetLogo from "./state-street.png";
 
@@ -29,7 +30,8 @@ const App = () => {
   }, []);
 
   const handleDownloadPDF = () => {
-    generatePDFReport(complianceData);
+    const pdfDoc = generatePDFReport(complianceData);
+    uploadReportToAzureBlob(pdfDoc);
   };
 
   return (
@@ -51,10 +53,6 @@ const App = () => {
         <div className="chart-container">
           <h1 className="chart-title">Severity Bar Chart</h1>
           <SeverityBarChart data={complianceData} />
-        </div>
-        <div className="chart-container">
-          <h1 className="chart-title">Heat Map</h1>
-          <Heatmap data={complianceData} />
         </div>
       </div>
     </div>

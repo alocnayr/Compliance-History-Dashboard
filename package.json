@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@azure/identity": "^4.0.0",
+    "@azure/storage-blob": "^12.17.0",
+    "azure-storage": "^2.10.7",
     "chart.js": "^4.4.0",
     "d3": "^7.8.5",
     "file-saver": "^2.0.5",

@@ -39,7 +39,7 @@ const GeneratePDFReport = (complianceData) => {
       yPosition = 20;
     }
 
-    doc.setFont("Arial", "bold");
+    doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
     doc.setTextColor("#001AFF");
 
@@ -54,7 +54,7 @@ const GeneratePDFReport = (complianceData) => {
 
     doc.setTextColor(0, 0, 0);
     yPosition += 10;
-    doc.setFont("Arial", "normal");
+    doc.setFont("helvetica", "normal");
 
     doc.setFontSize(12);
     doc.text(`Description: ${policy.Description}`, 14, yPosition);
@@ -105,6 +105,7 @@ const GeneratePDFReport = (complianceData) => {
   }
 
   doc.save("Compliance_Report.pdf");
+  return doc;
 };
 
 export default GeneratePDFReport;
