@@ -1,3 +1,10 @@
+/**
+ * Renders a bar chart component to display severity data.
+ *
+ * @component
+ * @param {Object[]} data - The data array containing severity information.
+ * @returns {JSX.Element} The SeverityBarChart component.
+ */
 import {
   BarChart,
   Bar,
@@ -10,14 +17,17 @@ import {
 } from "recharts";
 
 const SeverityBarChart = ({ data }) => {
-  if (data.length === 0) return null; // If no data, exit
+  // If no data, exit
+  if (data.length === 0) return null;
 
+  // Define severity colors
   const severityColors = {
     Low: "#0ac6ff", // Nice blue color for Low
     Medium: "#fab72d", // Yellow-oranish color for Medium
     High: "#ff0000", // Red-purplish color for High
   };
 
+  // Group data by year and severity
   const dataByYear = data.reduce((acc, curr) => {
     const year = curr.Year;
     const severity = curr.Severity;
@@ -27,6 +37,7 @@ const SeverityBarChart = ({ data }) => {
     return acc;
   }, new Map());
 
+  // Format data for chart
   const formattedData = Array.from(dataByYear.entries()).map(
     ([year, count]) => ({
       year,

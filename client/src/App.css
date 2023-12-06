@@ -1,4 +1,5 @@
 /* Basic Reset */
+/* Applies a basic reset to all elements, setting margin, padding, box-sizing, and font-family. */
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,8 @@
 }
 
 /* Overall App Styling - Dark Mode as Default */
+/* Styles the overall app container, setting the display, flex direction, min-height, background color,
+   text color, and font size. */
 .app {
   display: flex;
   flex-direction: column;
@@ -17,6 +20,8 @@
 }
 
 /* Header Styling */
+/* Styles the header container, setting the background color, box shadow, padding, display, alignment,
+   position, and z-index. */
 .hud {
   background-color: #1f1f1f;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -29,10 +34,12 @@
   z-index: 1000;
 }
 
+/* Styles the State Street logo, setting the height. */
 .state-street-logo {
   height: 40px; /* Adjust the logo size */
 }
 
+/* Styles the header title, setting the font size, color, and font weight. */
 .hud-title {
   font-size: 1.5rem;
   color: #4a90e2;
@@ -40,6 +47,8 @@
 }
 
 /* Button Styling */
+/* Styles the buttons in the header, setting the background color, text color, border, padding,
+   border radius, cursor, and transition. */
 .hud button {
   background-color: #001aff;
   color: white;
@@ -50,11 +59,14 @@
   transition: background-color 0.3s;
 }
 
+/* Styles the hover state of the buttons in the header, setting the background color. */
 .hud button:hover {
   background-color: #0011a7;
 }
 
 /* Main Content Area */
+/* Styles the main content area in dark mode, setting the padding, display, grid template columns,
+   gap, and overflow-y. */
 .dark-mode {
   padding: 2rem;
   display: grid;
@@ -64,6 +76,7 @@
 }
 
 /* Chart Container Styling */
+/* Styles the chart containers, setting the background color, padding, border radius, and box shadow. */
 .chart-container {
   background-color: #1f1f1f;
   padding: 1.5rem;
@@ -71,6 +84,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Styles the chart titles, setting the color, margin bottom, font size, and font weight. */
 .chart-title {
   color: #4a90e2;
   margin-bottom: 1rem;

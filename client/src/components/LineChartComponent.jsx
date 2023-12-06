@@ -1,3 +1,10 @@
+/**
+ * Renders a line chart component based on the provided data.
+ *
+ * @component
+ * @param {Object[]} data - The data used to render the line chart.
+ * @returns {JSX.Element} The line chart component.
+ */
 import {
   LineChart,
   Line,
@@ -12,6 +19,7 @@ import {
 const LineChartComponent = ({ data }) => {
   if (data.length === 0) return null; // If no data, exit
 
+  // Group the data by year
   const dataByYear = data.reduce((acc, curr) => {
     const year = curr.Year;
     const status = curr.Compliance_Status;
@@ -22,6 +30,7 @@ const LineChartComponent = ({ data }) => {
     return acc;
   }, new Map());
 
+  // Format the data for the line chart
   const formattedData = Array.from(dataByYear.entries()).map(
     ([year, count]) => ({
       year,

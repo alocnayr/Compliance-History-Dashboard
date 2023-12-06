@@ -1,3 +1,9 @@
+/**
+ * The main entry point of the React application.
+ * Renders the App component inside a StrictMode.
+ * @module Main
+ */
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";

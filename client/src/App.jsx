@@ -1,3 +1,10 @@
+/**
+ * The main component of the Compliance History Dashboard application.
+ * Renders the dashboard UI and handles data fetching, PDF generation, and PDF upload.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered App component.
+ */
 import { useState, useEffect } from "react";
 import ComplianceBarChart from "./components/ComplianceBarChart";
 import SeverityBarChart from "./components/SeverityBarChart";
@@ -8,8 +15,19 @@ import Papa from "papaparse";
 import "./App.css";
 
 const App = () => {
+  /**
+   * The compliance data fetched from the CSV file.
+   *
+   * @type {Array}
+   */
   const [complianceData, setComplianceData] = useState([]);
 
+  /**
+   * Fetches the compliance data from the CSV file.
+   *
+   * @async
+   * @function fetchComplianceData
+   */
   const fetchComplianceData = async () => {
     try {
       const response = await fetch("/Dummy Compliance Data.csv");
@@ -30,6 +48,13 @@ const App = () => {
     fetchComplianceData();
   }, []);
 
+  /**
+   * Uploads the generated PDF report to a blob storage.
+   *
+   * @async
+   * @function uploadPDFToBlob
+   * @param {string} pdfData - The base64-encoded PDF data.
+   */
   const uploadPDFToBlob = async (pdfData) => {
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
@@ -54,11 +79,24 @@ const App = () => {
     }
   };
 
+  /**
+   * Handles the download PDF button click event.
+   * Generates and downloads the PDF report.
+   *
+   * @async
+   * @function handleDownloadPDF
+   */
   const handleDownloadPDF = async () => {
     const pdfDoc = generatePDFReport(complianceData);
     pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
   };
 
+  /**
+   * Automates the generation and upload of the PDF report at a weekly interval.
+   *
+   * @async
+   * @function automatePDF
+   */
   const automatePDF = async () => {
     try {
       const pdfDoc = generatePDFReport(complianceData);
