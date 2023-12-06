@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import ComplianceBarChart from "./ComplianceBarChart";
-import SeverityBarChart from "./SeverityBarChart";
-import LineChartComponent from "./LineChartComponent";
+import { useState, useEffect } from "react";
+
+import ComplianceBarChart from "./components/ComplianceBarChart";
+import SeverityBarChart from "./components/SeverityBarChart";
+import LineChartComponent from "./components/LineChartComponent";
+import generatePDFReport from "./components/GeneratePDFReport.jsx";
+import StateStreetLogo from "./assets/state-street.png";
+
 import Papa from "papaparse";
-import generatePDFReport from "./GeneratePDFReport.jsx";
 import "./App.css";
-import StateStreetLogo from "./state-street.png";
 
 const App = () => {
   const [complianceData, setComplianceData] = useState([]);
@@ -82,7 +84,11 @@ const App = () => {
   return (
     <div className="app">
       <div className="hud">
-        <img src={StateStreetLogo} alt="State Street" className="state-street-logo" />
+        <img
+          src={StateStreetLogo}
+          alt="State Street"
+          className="state-street-logo"
+        />
         <h1 className="hud-title">Compliance Dashboard</h1>
         <button onClick={handleDownloadPDF}>Download PDF Report</button>
       </div>

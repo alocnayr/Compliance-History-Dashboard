@@ -1,11 +1,18 @@
 import jsPDF from "jspdf";
-import StateStreetBackground from "./state-street-background.jpg";
-import StateStreetLogo from "./state-street.png";
+import StateStreetBackground from "../assets/state-street-background.jpg";
+import StateStreetLogo from "../assets/state-street.png";
 
 const GeneratePDFReport = (complianceData) => {
   const doc = new jsPDF();
 
-  doc.addImage(StateStreetBackground, "JPG", 0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height);
+  doc.addImage(
+    StateStreetBackground,
+    "JPG",
+    0,
+    0,
+    doc.internal.pageSize.width,
+    doc.internal.pageSize.height
+  );
 
   const logoWidth = 80; // Adjust the width of the logo as needed
   const logoHeight = 25; // Adjust the height of the logo as needed
@@ -44,10 +51,12 @@ const GeneratePDFReport = (complianceData) => {
     doc.setTextColor("#001AFF");
 
     const policyName = `Policy ${policy.Policy_ID}: ${policy.Policy_Name}`;
-    const policyNameWidth = doc.getStringUnitWidth(policyName) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+    const policyNameWidth =
+      (doc.getStringUnitWidth(policyName) * doc.internal.getFontSize()) /
+      doc.internal.scaleFactor;
 
     doc.text(policyName, 14, yPosition);
-    
+
     // Draw underline only under the policy name
     doc.setLineWidth(0.5);
     doc.line(14, yPosition + 2, 14 + policyNameWidth, yPosition + 2);
@@ -73,7 +82,11 @@ const GeneratePDFReport = (complianceData) => {
         yPosition = 20;
       }
 
-      doc.text(`${entry.Year}: ${entry.Compliance_Status} (Severity: ${entry.Severity})`, 20, yPosition);
+      doc.text(
+        `${entry.Year}: ${entry.Compliance_Status} (Severity: ${entry.Severity})`,
+        20,
+        yPosition
+      );
       yPosition += 8;
     });
 
@@ -84,8 +97,8 @@ const GeneratePDFReport = (complianceData) => {
   for (let i = 1; i <= totalPages; i++) {
     doc.setPage(i);
     doc.setFontSize(12);
-    if(i !== 1) {
-        doc.text(`${i-1}`, 170, 280);
+    if (i !== 1) {
+      doc.text(`${i - 1}`, 170, 280);
     }
 
     // Set text color and opacity after setting the page
