@@ -3,7 +3,7 @@ import ComplianceBarChart from "./ComplianceBarChart";
 import SeverityBarChart from "./SeverityBarChart";
 import LineChartComponent from "./LineChartComponent";
 import Papa from "papaparse";
-import generatePDFReport from "./GeneratePDFReport.mjs";
+import generatePDFReport from "./GeneratePDFReport.jsx";
 import "./App.css";
 import StateStreetLogo from "./state-street.png";
 
@@ -27,9 +27,57 @@ const App = () => {
       });
   }, []);
 
-  const handleDownloadPDF = () => {
-    generatePDFReport(complianceData);
+  const uploadPDFToBlob = async (pdfData) => {
+    try {
+      // Send a POST request to the /upload endpoint
+      const response = await fetch("http://localhost:5001/upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pdfData,
+          blobName: `Compliance_Report_${new Date().toISOString()}.pdf`,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("PDF uploaded successfully");
+      } else {
+        console.error("Error uploading PDF:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error uploading PDF:", error);
+    }
   };
+
+  const handleDownloadPDF = async () => {
+    const pdfDoc = generatePDFReport(complianceData);
+    pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
+  };
+
+  const automatePDF = async () => {
+    try {
+      const pdfDoc = generatePDFReport(complianceData);
+
+      // Convert the PDF to a base64 encoded string
+      const pdfData = pdfDoc.output("datauristring").split(",")[1];
+
+      // Upload the PDF to Blob Storage
+      uploadPDFToBlob(pdfData);
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+    }
+  };
+
+  useEffect(() => {
+    const uploadInterval = setInterval(() => {
+      automatePDF();
+    }, 60000); // 60000 milliseconds = 1 minute
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(uploadInterval);
+  }, []);
 
   return (
     <div className="app">

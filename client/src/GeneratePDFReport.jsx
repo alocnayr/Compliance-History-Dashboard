@@ -104,7 +104,6 @@ const GeneratePDFReport = (complianceData) => {
     doc.restoreGraphicsState();
   }
 
-  doc.save("Compliance_Report.pdf");
   return doc;
 };
 
