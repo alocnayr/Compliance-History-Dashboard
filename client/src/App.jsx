@@ -1,9 +1,6 @@
 /**
  * The main component of the Compliance History Dashboard application.
  * Renders the dashboard UI and handles data fetching, PDF generation, and PDF upload.
- *
- * @component
- * @returns {JSX.Element} The rendered App component.
  */
 import { useState, useEffect } from "react";
 import ComplianceBarChart from "./components/ComplianceBarChart";

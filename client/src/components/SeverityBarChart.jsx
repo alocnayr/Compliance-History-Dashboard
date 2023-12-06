@@ -1,9 +1,5 @@
 /**
  * Renders a bar chart component to display severity data.
- *
- * @component
- * @param {Object[]} data - The data array containing severity information.
- * @returns {JSX.Element} The SeverityBarChart component.
  */
 import {
   BarChart,

@@ -1,3 +1,6 @@
+/**
+ * Renders a bar chart component to display compliance data.
+ */
 import {
   BarChart,
   Bar,

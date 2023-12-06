@@ -6,7 +6,6 @@ import StateStreetLogo from "../assets/images/state-street.png";
  * Generates a PDF report based on the provided compliance data.
  *
  * @param {Array} complianceData - The compliance data used to generate the report.
- * @returns {Object} - The generated PDF document.
  */
 const GeneratePDFReport = (complianceData) => {
   const doc = new jsPDF();

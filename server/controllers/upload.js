@@ -1,6 +1,9 @@
 // controllers/uploadController.js
 const azureStorageService = require("../services/azureStorageService");
 
+/**
+ * Controller function to handle the upload of a PDF file.
+ */
 const uploadPdfController = async (req, res, next) => {
   const { pdfData, blobName } = req.body;
 

@@ -1,9 +1,5 @@
 /**
  * Renders a line chart component based on the provided data.
- *
- * @component
- * @param {Object[]} data - The data used to render the line chart.
- * @returns {JSX.Element} The line chart component.
  */
 import {
   LineChart,
