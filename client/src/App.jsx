@@ -9,6 +9,12 @@ import "./App.css";
 
 const App = () => {
   const [complianceData, setComplianceData] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    // Save preference to local storage or user settings
+  };
 
   const fetchComplianceData = async () => {
     try {
@@ -56,9 +62,12 @@ const App = () => {
 
   const handleDownloadPDF = async () => {
     const pdfDoc = generatePDFReport(complianceData);
-    pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
+    const pdfData = pdfDoc.output("datauristring").split(",")[1];
+    // pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
+    await uploadPDFToBlob(pdfData);
   };
 
+  /*
   const automatePDF = async () => {
     try {
       const pdfDoc = generatePDFReport(complianceData);
@@ -73,6 +82,7 @@ const App = () => {
     const uploadInterval = setInterval(automatePDF, 60000); // 1 minute
     return () => clearInterval(uploadInterval);
   }, [complianceData]);
+  */
 
   return (
     <div className="app">

@@ -1,63 +1,79 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #222; /* Set your desired background color */
-  }
-  
-  
-  .chart-container {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .chart-title {
-    color: white;
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  
-  .app {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .dark-mode {
-    background-color: #222;
-    color: #fff;
-    font-family: "Arial", sans-serif;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
-    overflow: auto;
-  }
-  
-  .hud {
-    background-color: rgb(30, 30, 30);
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  
-  .state-street-logo {
-    width: 150px; /* Adjust the width as needed */
-    margin-right: 10px;
-  }
-  
-  .hud-title {
-    color: #001AFF;
-    font-size: 24px;
-    margin: 0;
-    margin-left: auto; /* Move to the right side */
-  }
-  
+/* Overall App Styling - Dark Mode as Default */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  font-size: 16px;
+}
+
+/* Header Styling */
+.hud {
+  background-color: #1f1f1f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.state-street-logo {
+  height: 40px; /* Adjust the logo size */
+}
+
+.hud-title {
+  font-size: 1.5rem;
+  color: #4a90e2;
+  font-weight: bold;
+}
+
+/* Button Styling */
+.hud button {
+  background-color: #001aff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hud button:hover {
+  background-color: #0011a7;
+}
+
+/* Main Content Area */
+.dark-mode {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Chart Container Styling */
+.chart-container {
+  background-color: #1f1f1f;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+  color: #4a90e2;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
