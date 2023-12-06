@@ -1,6 +1,6 @@
 import jsPDF from "jspdf";
-import StateStreetBackground from "../assets/state-street-background.jpg";
-import StateStreetLogo from "../assets/state-street.png";
+import StateStreetBackground from "../assets/images/state-street-background.jpg";
+import StateStreetLogo from "../assets/images/state-street.png";
 
 const GeneratePDFReport = (complianceData) => {
   const doc = new jsPDF();

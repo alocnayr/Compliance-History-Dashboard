@@ -3,7 +3,7 @@ import ComplianceBarChart from "./components/ComplianceBarChart";
 import SeverityBarChart from "./components/SeverityBarChart";
 import LineChartComponent from "./components/LineChartComponent";
 import generatePDFReport from "./components/GeneratePDFReport.jsx";
-import StateStreetLogo from "./assets/state-street.png";
+import StateStreetLogo from "./assets/images/state-street.png";
 import Papa from "papaparse";
 import "./App.css";
 
