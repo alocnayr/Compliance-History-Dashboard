@@ -1,37 +1,37 @@
 import { useState, useEffect } from "react";
-
 import ComplianceBarChart from "./components/ComplianceBarChart";
 import SeverityBarChart from "./components/SeverityBarChart";
 import LineChartComponent from "./components/LineChartComponent";
 import generatePDFReport from "./components/GeneratePDFReport.jsx";
 import StateStreetLogo from "./assets/state-street.png";
-
 import Papa from "papaparse";
 import "./App.css";
 
 const App = () => {
   const [complianceData, setComplianceData] = useState([]);
 
-  useEffect(() => {
-    fetch("/Dummy Compliance Data.csv")
-      .then((response) => response.text())
-      .then((csvText) => {
-        Papa.parse(csvText, {
-          header: true,
-          dynamicTyping: true,
-          complete: (results) => {
-            setComplianceData(results.data);
-          },
-        });
-      })
-      .catch((error) => {
-        console.error("Error fetching the CSV file:", error);
+  const fetchComplianceData = async () => {
+    try {
+      const response = await fetch("/Dummy Compliance Data.csv");
+      const csvText = await response.text();
+      Papa.parse(csvText, {
+        header: true,
+        dynamicTyping: true,
+        complete: (results) => {
+          setComplianceData(results.data);
+        },
       });
+    } catch (error) {
+      console.error("Error fetching the CSV file:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchComplianceData();
   }, []);
 
   const uploadPDFToBlob = async (pdfData) => {
     try {
-      // Send a POST request to the /upload endpoint
       const apiUrl = import.meta.env.VITE_API_URL;
       const response = await fetch(`${apiUrl}/upload`, {
         method: "POST",
@@ -44,13 +44,13 @@ const App = () => {
         }),
       });
 
-      if (response.ok) {
-        console.log("PDF uploaded successfully");
-      } else {
-        console.error("Error uploading PDF:", response.statusText);
+      if (!response.ok) {
+        throw new Error(`Error uploading PDF: ${response.statusText}`);
       }
+
+      console.log("PDF uploaded successfully");
     } catch (error) {
-      console.error("Error uploading PDF:", error);
+      console.error(error.message);
     }
   };
 
@@ -62,25 +62,17 @@ const App = () => {
   const automatePDF = async () => {
     try {
       const pdfDoc = generatePDFReport(complianceData);
-
-      // Convert the PDF to a base64 encoded string
       const pdfData = pdfDoc.output("datauristring").split(",")[1];
-
-      // Upload the PDF to Blob Storage
-      uploadPDFToBlob(pdfData);
+      await uploadPDFToBlob(pdfData);
     } catch (error) {
-      console.error("Error generating PDF:", error);
+      console.error("Error in automatePDF:", error);
     }
   };
 
   useEffect(() => {
-    const uploadInterval = setInterval(() => {
-      automatePDF();
-    }, 60000); // 60000 milliseconds = 1 minute
-
-    // Clean up the interval on component unmount
+    const uploadInterval = setInterval(automatePDF, 60000); // 1 minute
     return () => clearInterval(uploadInterval);
-  }, []);
+  }, [complianceData]);
 
   return (
     <div className="app">
