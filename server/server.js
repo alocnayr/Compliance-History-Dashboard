@@ -1,13 +1,13 @@
 const express = require("express");
 const { BlobServiceClient } = require("@azure/storage-blob");
-const cors = require("cors");  // Import the cors middleware
+const cors = require("cors"); // Import the cors middleware
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json({ limit: '50mb' }));
+app.use(express.json({ limit: "50mb" }));
 
 app.post("/upload", async (req, res) => {
   const { pdfData, blobName } = req.body;
