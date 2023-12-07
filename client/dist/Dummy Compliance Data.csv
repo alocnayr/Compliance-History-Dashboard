@@ -1,0 +1,121 @@
+Policy_ID,Policy_Name,Description,Policy_Type,Resource_Group_Name,Compliance_Status,Severity,Year
+P001,Access Control Policy,Restricts access to sensitive data,Preventative,Finance Department,Compliant,Low,2018
+P002,Data Encryption,Requires encryption for sensitive files,Preventative,IT Department,Non-compliant,High,2018
+P003,Password Policy,Enforces strong password requirements,Preventative,HR Department,Compliant,Medium,2018
+P004,Audit Logging Policy,Enables audit logs for critical systems,Detective,Security Team,Compliant,Low,2018
+P005,Data Backup Policy,Regular backups of critical data,Preventative,Operations Team,Non-compliant,High,2018
+P006,Network Security Policy,Implements firewall and intrusion detection,Preventative,IT Department,Compliant,Medium,2018
+P007,Privacy Policy,Safeguards customer data privacy,Preventative,Legal Department,Non-compliant,High,2018
+P008,Incident Response Plan,Outlines procedures for handling incidents,Detective,Security Team,Compliant,Low,2018
+P009,Patch Management Policy,Ensures timely application of security patches,Preventative,IT Department,Non-compliant,High,2018
+P010,Employee Training Policy,Requires security training for employees,Preventative,HR Department,Compliant,Medium,2018
+P011,Physical Security Policy,Ensures physical security of data centers,Preventative,Operations Team,Compliant,Low,2018
+P012,Change Management Policy,Controls changes to IT infrastructure,Preventative,IT Department,Non-compliant,High,2018
+P013,Data Retention Policy,Specifies data retention and disposal,Preventative,Legal Department,Compliant,Medium,2018
+P014,Vendor Management Policy,Manages relationships with third-party vendors,Preventative,Procurement Team,Compliant,Low,2018
+P015,Mobile Device Policy,Regulates the use of mobile devices,Preventative,IT Department,Non-compliant,High,2018
+P016,Business Continuity Policy,Ensures continuity in case of disruptions,Preventative,Operations Team,Compliant,Medium,2018
+P017,Social Media Policy,Guidelines for employee social media use,Preventative,HR Department,Compliant,Low,2018
+P018,Cloud Security Policy,Secures data stored in cloud environments,Preventative,IT Department,Non-compliant,High,2018
+P019,Data Classification Policy,Classifies data based on sensitivity,Preventative,Security Team,Compliant,Medium,2018
+P020,Compliance Monitoring Policy,Monitors adherence to compliance policies,Detective,Security Team,Compliant,Low,2018
+P001,Access Control Policy,Restricts access to sensitive data,Preventative,Finance Department,Non-compliant,High,2019
+P002,Data Encryption,Requires encryption for sensitive files,Preventative,IT Department,Compliant,Medium,2019
+P003,Password Policy,Enforces strong password requirements,Preventative,HR Department,Non-compliant,High,2019
+P004,Audit Logging Policy,Enables audit logs for critical systems,Detective,Security Team,Compliant,Low,2019
+P005,Data Backup Policy,Regular backups of critical data,Preventative,Operations Team,Compliant,Medium,2019
+P006,Network Security Policy,Implements firewall and intrusion detection,Preventative,IT Department,Non-compliant,High,2019
+P007,Privacy Policy,Safeguards customer data privacy,Preventative,Legal Department,Compliant,Low,2019
+P008,Incident Response Plan,Outlines procedures for handling incidents,Detective,Security Team,Non-compliant,Medium,2019
+P009,Patch Management Policy,Ensures timely application of security patches,Preventative,IT Department,Compliant,Low,2019
+P010,Employee Training Policy,Requires security training for employees,Preventative,HR Department,Non-compliant,High,2019
+P011,Physical Security Policy,Ensures physical security of data centers,Preventative,Operations Team,Compliant,Medium,2019
+P012,Change Management Policy,Controls changes to IT infrastructure,Preventative,IT Department,Non-compliant,High,2019
+P013,Data Retention Policy,Specifies data retention and disposal,Preventative,Legal Department,Compliant,Low,2019
+P014,Vendor Management Policy,Manages relationships with third-party vendors,Preventative,Procurement Team,Compliant,Medium,2019
+P015,Mobile Device Policy,Regulates the use of mobile devices,Preventative,IT Department,Non-compliant,High,2019
+P016,Business Continuity Policy,Ensures continuity in case of disruptions,Preventative,Operations Team,Compliant,Low,2019
+P017,Social Media Policy,Guidelines for employee social media use,Preventative,HR Department,Compliant,Medium,2019
+P018,Cloud Security Policy,Secures data stored in cloud environments,Preventative,IT Department,Non-compliant,High,2019
+P019,Data Classification Policy,Classifies data based on sensitivity,Preventative,Security Team,Compliant,Low,2019
+P020,Compliance Monitoring Policy,Monitors adherence to compliance policies,Detective,Security Team,Compliant,High,2019
+P001,Access Control Policy,Restricts access to sensitive data,Preventative,Finance Department,Non-compliant,Medium,2020
+P002,Data Encryption,Requires encryption for sensitive files,Preventative,IT Department,Compliant,High,2020
+P003,Password Policy,Enforces strong password requirements,Preventative,HR Department,Non-compliant,Low,2020
+P004,Audit Logging Policy,Enables audit logs for critical systems,Detective,Security Team,Compliant,High,2020
+P005,Data Backup Policy,Regular backups of critical data,Preventative,Operations Team,Compliant,Medium,2020
+P006,Network Security Policy,Implements firewall and intrusion detection,Preventative,IT Department,Non-compliant,High,2020
+P007,Privacy Policy,Safeguards customer data privacy,Preventative,Legal Department,Compliant,Low,2020
+P008,Incident Response Plan,Outlines procedures for handling incidents,Detective,Security Team,Non-compliant,High,2020
+P009,Patch Management Policy,Ensures timely application of security patches,Preventative,IT Department,Compliant,Medium,2020
+P010,Employee Training Policy,Requires security training for employees,Preventative,HR Department,Non-compliant,Low,2020
+P011,Physical Security Policy,Ensures physical security of data centers,Preventative,Operations Team,Compliant,High,2020
+P012,Change Management Policy,Controls changes to IT infrastructure,Preventative,IT Department,Non-compliant,Low,2020
+P013,Data Retention Policy,Specifies data retention and disposal,Preventative,Legal Department,Compliant,Medium,2020
+P014,Vendor Management Policy,Manages relationships with third-party vendors,Preventative,Procurement Team,Compliant,High,2020
+P015,Mobile Device Policy,Regulates the use of mobile devices,Preventative,IT Department,Non-compliant,Low,2020
+P016,Business Continuity Policy,Ensures continuity in case of disruptions,Preventative,Operations Team,Compliant,High,2020
+P017,Social Media Policy,Guidelines for employee social media use,Preventative,HR Department,Compliant,Medium,2020
+P018,Cloud Security Policy,Secures data stored in cloud environments,Preventative,IT Department,Non-compliant,Low,2020
+P019,Data Classification Policy,Classifies data based on sensitivity,Preventative,Security Team,Compliant,High,2020
+P020,Compliance Monitoring Policy,Monitors adherence to compliance policies,Detective,Security Team,Non-compliant,Low,2020
+P001,Access Control Policy,Restricts access to sensitive data,Preventative,Finance Department,Compliant,Low,2021
+P002,Data Encryption,Requires encryption for sensitive files,Preventative,IT Department,Non-compliant,Medium,2021
+P003,Password Policy,Enforces strong password requirements,Preventative,HR Department,Compliant,High,2021
+P004,Audit Logging Policy,Enables audit logs for critical systems,Detective,Security Team,Non-compliant,Low,2021
+P005,Data Backup Policy,Regular backups of critical data,Preventative,Operations Team,Compliant,High,2021
+P006,Network Security Policy,Implements firewall and intrusion detection,Preventative,IT Department,Compliant,Medium,2021
+P007,Privacy Policy,Safeguards customer data privacy,Preventative,Legal Department,Non-compliant,Low,2021
+P008,Incident Response Plan,Outlines procedures for handling incidents,Detective,Security Team,Compliant,Medium,2021
+P009,Patch Management Policy,Ensures timely application of security patches,Preventative,IT Department,Non-compliant,High,2021
+P010,Employee Training Policy,Requires security training for employees,Preventative,HR Department,Compliant,Low,2021
+P011,Physical Security Policy,Ensures physical security of data centers,Preventative,Operations Team,Compliant,High,2021
+P012,Change Management Policy,Controls changes to IT infrastructure,Preventative,IT Department,Non-compliant,Medium,2021
+P013,Data Retention Policy,Specifies data retention and disposal,Preventative,Legal Department,Compliant,Low,2021
+P014,Vendor Management Policy,Manages relationships with third-party vendors,Preventative,Procurement Team,Non-compliant,High,2021
+P015,Mobile Device Policy,Regulates the use of mobile devices,Preventative,IT Department,Compliant,Medium,2021
+P016,Business Continuity Policy,Ensures continuity in case of disruptions,Preventative,Operations Team,Non-compliant,Low,2021
+P017,Social Media Policy,Guidelines for employee social media use,Preventative,HR Department,Compliant,High,2021
+P018,Cloud Security Policy,Secures data stored in cloud environments,Preventative,IT Department,Non-compliant,Medium,2021
+P019,Data Classification Policy,Classifies data based on sensitivity,Preventative,Security Team,Compliant,Low,2021
+P020,Compliance Monitoring Policy,Monitors adherence to compliance policies,Detective,Security Team,Non-compliant,High,2021
+P001,Access Control Policy,Restricts access to sensitive data,Preventative,Finance Department,Compliant,Medium,2022
+P002,Data Encryption,Requires encryption for sensitive files,Preventative,IT Department,Non-compliant,High,2022
+P003,Password Policy,Enforces strong password requirements,Preventative,HR Department,Compliant,Low,2022
+P004,Audit Logging Policy,Enables audit logs for critical systems,Detective,Security Team,Non-compliant,Medium,2022
+P005,Data Backup Policy,Regular backups of critical data,Preventative,Operations Team,Compliant,High,2022
+P006,Network Security Policy,Implements firewall and intrusion detection,Preventative,IT Department,Non-compliant,Low,2022
+P007,Privacy Policy,Safeguards customer data privacy,Preventative,Legal Department,Compliant,High,2022
+P008,Incident Response Plan,Outlines procedures for handling incidents,Detective,Security Team,Non-compliant,Low,2022
+P009,Patch Management Policy,Ensures timely application of security patches,Preventative,IT Department,Compliant,Medium,2022
+P010,Employee Training Policy,Requires security training for employees,Preventative,HR Department,Non-compliant,High,2022
+P011,Physical Security Policy,Ensures physical security of data centers,Preventative,Operations Team,Compliant,Low,2022
+P012,Change Management Policy,Controls changes to IT infrastructure,Preventative,IT Department,Non-compliant,High,2022
+P013,Data Retention Policy,Specifies data retention and disposal,Preventative,Legal Department,Compliant,Medium,2022
+P014,Vendor Management Policy,Manages relationships with third-party vendors,Preventative,Procurement Team,Non-compliant,Low,2022
+P015,Mobile Device Policy,Regulates the use of mobile devices,Preventative,IT Department,Compliant,High,2022
+P016,Business Continuity Policy,Ensures continuity in case of disruptions,Preventative,Operations Team,Non-compliant,Medium,2022
+P017,Social Media Policy,Guidelines for employee social media use,Preventative,HR Department,Compliant,Low,2022
+P018,Cloud Security Policy,Secures data stored in cloud environments,Preventative,IT Department,Non-compliant,High,2022
+P019,Data Classification Policy,Classifies data based on sensitivity,Preventative,Security Team,Compliant,Medium,2022
+P020,Compliance Monitoring Policy,Monitors adherence to compliance policies,Detective,Security Team,Non-compliant,Low,2022
+P001,Access Control Policy,Restricts access to sensitive data,Preventative,Finance Department,Non-compliant,Low,2023
+P002,Data Encryption,Requires encryption for sensitive files,Preventative,IT Department,Compliant,High,2023
+P003,Password Policy,Enforces strong password requirements,Preventative,HR Department,Non-compliant,Medium,2023
+P004,Audit Logging Policy,Enables audit logs for critical systems,Detective,Security Team,Compliant,Low,2023
+P005,Data Backup Policy,Regular backups of critical data,Preventative,Operations Team,Compliant,High,2023
+P006,Network Security Policy,Implements firewall and intrusion detection,Preventative,IT Department,Compliant,Medium,2023
+P007,Privacy Policy,Safeguards customer data privacy,Preventative,Legal Department,Non-compliant,Low,2023
+P008,Incident Response Plan,Outlines procedures for handling incidents,Detective,Security Team,Compliant,Medium,2023
+P009,Patch Management Policy,Ensures timely application of security patches,Preventative,IT Department,Non-compliant,High,2023
+P010,Employee Training Policy,Requires security training for employees,Preventative,HR Department,Compliant,Low,2023
+P011,Physical Security Policy,Ensures physical security of data centers,Preventative,Operations Team,Compliant,High,2023
+P012,Change Management Policy,Controls changes to IT infrastructure,Preventative,IT Department,Non-compliant,Low,2023
+P013,Data Retention Policy,Specifies data retention and disposal,Preventative,Legal Department,Compliant,Medium,2023
+P014,Vendor Management Policy,Manages relationships with third-party vendors,Preventative,Procurement Team,Non-compliant,High,2023
+P015,Mobile Device Policy,Regulates the use of mobile devices,Preventative,IT Department,Compliant,Medium,2023
+P016,Business Continuity Policy,Ensures continuity in case of disruptions,Preventative,Operations Team,Non-compliant,Low,2023
+P017,Social Media Policy,Guidelines for employee social media use,Preventative,HR Department,Compliant,High,2023
+P018,Cloud Security Policy,Secures data stored in cloud environments,Preventative,IT Department,Non-compliant,Medium,2023
+P019,Data Classification Policy,Classifies data based on sensitivity,Preventative,Security Team,Compliant,Low,2023
+P020,Compliance Monitoring Policy,Monitors adherence to compliance policies,Detective,Security Team,Non-compliant,High,2023
