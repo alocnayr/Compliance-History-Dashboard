@@ -11,7 +11,7 @@ const uploadPdfController = async (req, res, next) => {
     await azureStorageService.uploadPdf(pdfData, blobName);
     res.status(200).send({ message: "File uploaded successfully" });
   } catch (error) {
-    next(error); // Pass errors to the error handling middleware
+    next(error);
   }
 };
 

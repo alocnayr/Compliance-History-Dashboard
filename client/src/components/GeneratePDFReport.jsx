@@ -19,8 +19,8 @@ const GeneratePDFReport = (complianceData) => {
     doc.internal.pageSize.height
   );
 
-  const logoWidth = 80; // Adjust the width of the logo as needed
-  const logoHeight = 25; // Adjust the height of the logo as needed
+  const logoWidth = 80;
+  const logoHeight = 25;
   doc.addImage(StateStreetLogo, "PNG", 20, 20, logoWidth, logoHeight);
 
   // Title and Subtitle
@@ -106,9 +106,8 @@ const GeneratePDFReport = (complianceData) => {
       doc.text(`${i - 1}`, 170, 280);
     }
 
-    // Set text color and opacity after setting the page
-    doc.setTextColor(0, 0, 0); // Set text color to black
-    doc.setDrawColor(0, 0, 0); // Set draw color to black
+    doc.setTextColor(0, 0, 0);
+    doc.setDrawColor(0, 0, 0); 
     doc.setFontSize(16);
     doc.saveGraphicsState();
     doc.setGState(new doc.GState({ opacity: 0.2 }));

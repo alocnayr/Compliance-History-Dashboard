@@ -89,10 +89,9 @@ const App = () => {
   };
 
   /**
-   * Automates the generation and upload of the PDF report at a weekly interval.
-   *
-   * @async
    * @function automatePDF
+   * @async
+   * @description Automates the generation and upload of the PDF report at a weekly interval.
    */
   const automatePDF = async () => {
     try {
@@ -111,6 +110,9 @@ const App = () => {
     return () => clearInterval(uploadInterval);
   }, [complianceData]);
 
+  /**
+   * @description Renders the Compliance History Dashboard UI.
+   */
   return (
     <div className="app">
       <div className="hud">
@@ -124,15 +126,15 @@ const App = () => {
       </div>
       <div className="dark-mode">
         <div className="chart-container">
-          <h1 className="chart-title">Compliance History Chart</h1>
+          <h1 className="chart-title">Policy Compliance Distribution</h1>
           <ComplianceBarChart data={complianceData} />
         </div>
         <div className="chart-container">
-          <h1 className="chart-title">Line Chart</h1>
+          <h1 className="chart-title">Compliance Evolution Line</h1>
           <LineChartComponent data={complianceData} />
         </div>
         <div className="chart-container">
-          <h1 className="chart-title">Severity Bar Chart</h1>
+          <h1 className="chart-title">Risk Severity Distribution</h1>
           <SeverityBarChart data={complianceData} />
         </div>
       </div>

@@ -1,7 +1,7 @@
 const { BlobServiceClient } = require("@azure/storage-blob");
 
 const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
-const containerName = "compliance-reports"; // Container name can also be stored in an environment variable
+const containerName = "compliance-reports";
 
 /**
  * Uploads a PDF file to Azure Blob Storage.
@@ -18,12 +18,10 @@ const uploadPdf = async (pdfData, blobName) => {
     const buffer = Buffer.from(pdfData, "base64");
     await blockBlobClient.upload(buffer, buffer.length);
 
-    // If the upload is successful, you can add additional logic here
     console.log(`File ${blobName} uploaded successfully.`);
   } catch (error) {
-    // Handle the error here
     console.error("Error occurred during file upload:", error);
-    throw error; // Re-throw the error if you want the calling function to handle it as well
+    throw error;
   }
 };
 

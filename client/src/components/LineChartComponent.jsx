@@ -1,6 +1,8 @@
 /**
- * Renders a line chart component based on the provided data.
+ * @file LineChartComponent.jsx
+ * @description Renders a line chart component based on the provided data.
  */
+
 import {
   LineChart,
   Line,
@@ -12,10 +14,17 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const LineChartComponent = ({ data }) => {
-  if (data.length === 0) return null; // If no data, exit
 
-  // Group the data by year
+/**
+ * @function LineChartComponent
+ * @description Renders a line chart based on the provided data.
+ * @param {Object} props - The component's properties.
+ * @param {Array} props.data - The data to be visualized on the line chart.
+ * @returns {React.Component} A React component rendering a line chart.
+ */
+const LineChartComponent = ({ data }) => {
+  if (data.length === 0) return null;
+
   const dataByYear = data.reduce((acc, curr) => {
     const year = curr.Year;
     const status = curr.Compliance_Status;
@@ -26,7 +35,6 @@ const LineChartComponent = ({ data }) => {
     return acc;
   }, new Map());
 
-  // Format the data for the line chart
   const formattedData = Array.from(dataByYear.entries()).map(
     ([year, count]) => ({
       year,
@@ -36,6 +44,10 @@ const LineChartComponent = ({ data }) => {
     })
   );
 
+  /**
+     * @description Renders the LineChart component.
+     * @returns {React.Component} A React component rendering the LineChart.
+   */
   return (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={formattedData} style={{ color: "white" }}>
