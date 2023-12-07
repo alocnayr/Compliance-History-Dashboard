@@ -54,9 +54,9 @@ const App = () => {
    */
   const uploadPDFToBlob = async (pdfData) => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${apiUrl}/upload`, {
-        // const response = await fetch(`/upload`, {
+      // const apiUrl = import.meta.env.VITE_API_URL;
+      // const response = await fetch(`${apiUrl}/upload`, {
+      const response = await fetch(`/upload`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
