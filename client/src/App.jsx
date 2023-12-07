@@ -86,9 +86,9 @@ const App = () => {
    */
   const handleDownloadPDF = async () => {
     const pdfDoc = generatePDFReport(complianceData);
-    const pdfData = pdfDoc.output("datauristring").split(",")[1];
-    await uploadPDFToBlob(pdfData);
-    // pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
+    // const pdfData = pdfDoc.output("datauristring").split(",")[1];
+    // await uploadPDFToBlob(pdfData);
+    pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
   };
 
   /**
@@ -106,12 +106,12 @@ const App = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const millisecondsPerWeek = 60 * 60 * 24 * 7 * 1000;
-  //   const uploadInterval = setInterval(automatePDF, millisecondsPerWeek);
+  useEffect(() => {
+    const millisecondsPerWeek = 30 * 1000;
+    const uploadInterval = setInterval(automatePDF, millisecondsPerWeek);
 
-  //   return () => clearInterval(uploadInterval);
-  // }, [complianceData]);
+    return () => clearInterval(uploadInterval);
+  }, [complianceData]);
 
   /**
    * @description Renders the Compliance History Dashboard UI.
