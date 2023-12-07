@@ -56,6 +56,7 @@ const App = () => {
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
       const response = await fetch(`${apiUrl}/upload`, {
+        // const response = await fetch(`/upload`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,7 +86,9 @@ const App = () => {
    */
   const handleDownloadPDF = async () => {
     const pdfDoc = generatePDFReport(complianceData);
-    pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
+    const pdfData = pdfDoc.output("datauristring").split(",")[1];
+    await uploadPDFToBlob(pdfData);
+    // pdfDoc.save(`Compliance_Report_${new Date().toISOString()}.pdf`);
   };
 
   /**
@@ -103,12 +106,12 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    const millisecondsPerWeek = 60 * 60 * 24 * 7 * 1000;
-    const uploadInterval = setInterval(automatePDF, millisecondsPerWeek);
+  // useEffect(() => {
+  //   const millisecondsPerWeek = 60 * 60 * 24 * 7 * 1000;
+  //   const uploadInterval = setInterval(automatePDF, millisecondsPerWeek);
 
-    return () => clearInterval(uploadInterval);
-  }, [complianceData]);
+  //   return () => clearInterval(uploadInterval);
+  // }, [complianceData]);
 
   /**
    * @description Renders the Compliance History Dashboard UI.
